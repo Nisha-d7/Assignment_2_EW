@@ -1,0 +1,29 @@
+package com.example.assignment2.rest.models;
+
+  import jakarta.persistence.Entity;
+  import jakarta.persistence.Id;
+
+  @Entity
+  public class Publisher {
+      @Id
+      private long id;
+      private String name;
+      private String address;
+
+      public long getId() { return id; }
+      public String getName() { return name; }
+      public String getAddress() { return address; }
+      public void setId(long id) { this.id = id; }
+      public void setName(String name) { this.name = name; }
+      public void setAddress(String address) { this.address = address; }
+
+      public Publisher(long id, String name, String address) {
+          super();
+          this.id = id;
+          this.name = name;
+          this.address = address;
+      }
+      public Publisher() {
+          super();
+      }
+  }

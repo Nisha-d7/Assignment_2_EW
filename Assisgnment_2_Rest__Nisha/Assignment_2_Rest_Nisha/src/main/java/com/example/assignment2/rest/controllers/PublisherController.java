@@ -1,0 +1,36 @@
+package com.example.assignment2.rest.controllers;
+
+import com.example.assignment2.rest.models.Publisher;
+import com.example.assignment2.rest.services.PublisherService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashSet;
+
+@RestController
+@RequestMapping("/api/publishers")
+public class PublisherController {
+    @Autowired
+    PublisherService publisherService;
+
+    @PostMapping("/")
+    public void addPublisher(@RequestBody Publisher publisher) {
+        publisherService.addPublisher(publisher);
+    }
+
+    @GetMapping("/findall")
+    public HashSet<Publisher> getAllPublisher() {
+        return publisherService.findAllPublisher();
+    }
+
+    @GetMapping("/findbyid/{id}")
+    public Publisher getPublisherById(@PathVariable long id) {
+        return publisherService.findPublisherById(id);
+    }
+
+    @DeleteMapping("/delete")
+    public void deletePublisher() {
+        publisherService.deleteAllData();
+    }
+}

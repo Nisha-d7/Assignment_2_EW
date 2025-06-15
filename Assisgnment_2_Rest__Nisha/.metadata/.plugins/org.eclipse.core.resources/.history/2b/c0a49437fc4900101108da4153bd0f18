@@ -1,0 +1,36 @@
+package com.example.controllers.copy;
+
+import com.example.models.Book;
+import com.example.services.BookService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashSet;
+
+@RestController
+@RequestMapping("/api/books")
+public class BookController {
+    @Autowired
+    BookService bookService;
+
+    @PostMapping("/")
+    public void addBook(@RequestBody Book book) {
+        bookService.addBook(book);
+    }
+
+    @GetMapping("/findall")
+    public HashSet<Book> getAllBook() {
+        return bookService.findAllBook();
+    }
+
+    @GetMapping("/findbyid/{id}")
+    public Book getBookById(@PathVariable long id) {
+        return bookService.findBookById(id);
+    }
+
+    @DeleteMapping("/delete")
+    public void deleteBook() {
+        bookService.deleteAllData();
+    }
+}

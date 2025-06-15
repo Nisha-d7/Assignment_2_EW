@@ -1,0 +1,36 @@
+package com.example.assignment2.rest.controllers;
+
+import com.example.assignment2.rest.models.Member;
+import com.example.assignment2.rest.services.MemberService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashSet;
+
+@RestController
+@RequestMapping("/api/members")
+public class MemberController {
+    @Autowired
+    MemberService memberService;
+
+    @PostMapping("/")
+    public void addMember(@RequestBody Member member) {
+        memberService.addMember(member);
+    }
+
+    @GetMapping("/findall")
+    public HashSet<Member> getAllMember() {
+        return memberService.findAllMember();
+    }
+
+    @GetMapping("/findbyid/{id}")
+    public Member getMemberById(@PathVariable long id) {
+        return memberService.findMemberById(id);
+    }
+
+    @DeleteMapping("/delete")
+    public void deleteMember() {
+        memberService.deleteAllData();
+    }
+}

@@ -1,0 +1,30 @@
+package com.example.assignment2.rest.controllers;
+
+import com.example.assignment2.rest.models.Issue;
+import com.example.assignment2.rest.services.IssueService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashSet;
+
+@RestController
+@RequestMapping("/api/issues")
+public class IssueController {
+    @Autowired
+    private IssueService issueService;
+
+    @PostMapping("/")
+    public void addIssue(@RequestBody Issue issue) {
+        issueService.addIssue(issue);
+    }
+
+    @GetMapping("/findall")
+    public HashSet<Issue> getAllIssues() {
+        return issueService.findAllIssue();
+    }
+
+    @GetMapping("/findbyid/{id}")
+    public Issue getIssueById(@PathVariable long id) {
+        return issueService.findIssueById(id);
+    }
+}

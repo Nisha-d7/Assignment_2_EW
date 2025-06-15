@@ -1,0 +1,12 @@
+package com.example.assignment2.rest.services;
+
+import java.util.HashSet;
+
+import com.example.assignment2.rest.models.Member;
+
+public interface MemberService {
+    HashSet<Member> findAllMember();
+    Member findMemberById(long id);
+    void addMember(Member m);
+    void deleteAllData();
+}

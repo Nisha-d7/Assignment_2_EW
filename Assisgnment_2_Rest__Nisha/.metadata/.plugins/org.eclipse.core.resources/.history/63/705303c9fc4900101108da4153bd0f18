@@ -1,0 +1,12 @@
+package com.example.assignment2.restservices;
+
+import java.util.HashSet;
+
+import com.example.models.Publisher;
+
+public interface PublisherService {
+    HashSet<Publisher> findAllPublisher();
+    Publisher findPublisherById(long id);
+    void addPublisher(Publisher p);
+    void deleteAllData();
+}

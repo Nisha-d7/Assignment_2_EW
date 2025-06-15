@@ -1,0 +1,12 @@
+package com.example.demo.services;
+
+import java.util.HashSet;
+
+import com.example.models.Member;
+
+public interface MemberService {
+    HashSet<Member> findAllMember();
+    Member findMemberById(long id);
+    void addMember(Member m);
+    void deleteAllData();
+}

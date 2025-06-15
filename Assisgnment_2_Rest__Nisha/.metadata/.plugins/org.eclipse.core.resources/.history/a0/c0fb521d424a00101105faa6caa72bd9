@@ -1,0 +1,37 @@
+package com.example.assignment2.rest.models;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
+import java.util.Date;
+
+@Entity
+public class Issue {
+    @Id
+    private long issueId;
+    @ManyToOne
+    @JoinColumn(name = "book_id", nullable = false)
+    private Book book;
+    @ManyToOne
+    @JoinColumn(name = "member_id", nullable = false)
+    private Member member;
+    private Date dueDate;
+
+    public long getIssueId() { return issueId; }
+    public Book getBook() { return book; }
+    public Member getMember() { return member; }
+    public Date getDueDate() { return dueDate; }
+    public void setIssueId(long issueId) { this.issueId = issueId; }
+    public void setBook(Book book) { this.book = book; }
+    public void setMember(Member member) { this.member = member; }
+    public void setDueDate(Date dueDate) { this.dueDate = dueDate; }
+
+    public Issue(long issueId, Book book, Member member, Date dueDate) {
+        this.issueId = issueId;
+        this.book = book;
+        this.member = member;
+        this.dueDate = dueDate;
+    }
+    public Issue() {}
+}

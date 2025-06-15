@@ -1,0 +1,15 @@
+package com.example.assignment2.rest;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Assignment2RestNishaApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Assignment2RestNishaApplication.class, args);
+	}
+
+}
+
+

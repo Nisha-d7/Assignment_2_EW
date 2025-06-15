@@ -1,0 +1,35 @@
+package com.example.assignment2.rest.services;
+
+import com.example.assignment2.rest.models.Publisher;
+import com.example.repositories.PublisherRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.HashSet;
+
+@Service
+public class PublisherServiceImpl implements PublisherService {
+    @Autowired
+    private PublisherRepository publisherRepository;
+
+    @Override
+    public HashSet<Publisher> findAllPublisher() {
+        return new HashSet<>(publisherRepository.findAll());
+    }
+
+    @Override
+    public Publisher findPublisherById(long id) {
+        return publisherRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public void addPublisher(Publisher p) {
+        publisherRepository.save(p);
+    }
+
+    @Override
+    public void deleteAllData() {
+        publisherRepository.deleteAll();
+    }
+}

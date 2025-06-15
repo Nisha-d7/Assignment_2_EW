@@ -1,0 +1,38 @@
+package com.example.assignment2.rest.models;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import java.util.Date;
+
+@Entity
+public class Member {
+    @Id
+    private long id;
+    private String name;
+    private String address;
+    private Date membDate;
+    private String membType;
+
+    public long getId() { return id; }
+    public String getName() { return name; }
+    public String getAddress() { return address; }
+    public Date getMembDate() { return membDate; }
+    public String getMembType() { return membType; }
+    public void setId(long id) { this.id = id; }
+    public void setName(String name) { this.name = name; }
+    public void setAddress(String address) { this.address = address; }
+    public void setMembDate(Date membDate) { this.membDate = membDate; }
+    public void setMembType(String membType) { this.membType = membType; }
+
+    public Member(long id, String name, String address, Date membDate, String membType) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.membDate = membDate;
+        this.membType = membType;
+    }
+    public Member() {
+        super();
+    }
+}

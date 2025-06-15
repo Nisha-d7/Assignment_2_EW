@@ -1,0 +1,11 @@
+package com.example.assignment2.rest.services;
+
+import com.example.assignment2.rest.models.Issue;
+import java.util.HashSet;
+
+public interface IssueService {
+    HashSet<Issue> findAllIssue();
+    Issue findIssueById(long id);
+    void addIssue(Issue i);
+    void deleteAllData();
+}

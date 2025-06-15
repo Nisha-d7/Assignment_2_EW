@@ -1,0 +1,9 @@
+package com.example.assignment2.rest.repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.models.Book;
+
+public class BookRepository extends JpaRepository<Book, Long> {
+
+}
